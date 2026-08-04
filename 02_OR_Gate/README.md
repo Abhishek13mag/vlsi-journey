@@ -71,9 +71,7 @@ vvp and.out
 gtkwave wave.vcd
 ```
 
-Add your GTKWave screenshot below after uploading `waveform.png`.
 
-![Waveform](waveform.png)
 
 ---
 
