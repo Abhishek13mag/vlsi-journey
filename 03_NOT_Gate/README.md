@@ -1,8 +1,20 @@
 # NOT Gate
 
-## Description
+## Objective
 
-This project implements a 1-input NOT gate (Inverter) using Verilog HDL and verifies its functionality using a testbench.
+Design and simulate a 1-input NOT gate using Verilog HDL.
+
+## Tools Used
+
+- Icarus Verilog
+- GTKWave
+- VS Code
+- Ubuntu (WSL)
+
+## Files
+
+- `not_gate.v` – RTL module
+- `not_gate_tb.v` – Testbench
 
 ## Truth Table
 
@@ -10,41 +22,3 @@ This project implements a 1-input NOT gate (Inverter) using Verilog HDL and veri
 |---|---|
 | 0 | 1 |
 | 1 | 0 |
-
-## Files
-
-- `not_gate.v` - RTL design
-- `not_gate_tb.v` - Testbench
-- `waveform.png` - Simulation waveform
-
-## Compile
-
-```bash
-iverilog -o not.out not_gate.v not_gate_tb.v
-```
-
-## Run
-
-```bash
-vvp not.out
-```
-
-## View Waveform
-
-```bash
-gtkwave wave.vcd
-```
-
-## Output
-
-```
-0   x=0 y=1
-10  x=1 y=0
-```
-
-## Learning
-
-- Learned the NOT operator (`~`)
-- Wrote a Verilog testbench
-- Simulated the design using Icarus Verilog
-- Viewed the waveform in GTKWave
