@@ -1,147 +1,54 @@
-# 01 - AND Gate
+# OR Gate
 
-## 📌 Objective
+## Description
 
-Design and simulate a 2-input AND gate using Verilog HDL.
+This project implements a 2-input OR gate using Verilog HDL and verifies its functionality using a testbench.
 
----
-
-## 📖 Theory
-
-An AND gate produces a HIGH (1) output only when **both inputs are HIGH (1)**.
-
-Boolean Equation:
-
-Y = A & B
-
----
-
-## 🔢 Truth Table
+## Truth Table
 
 | A | B | Y |
 |---|---|---|
 | 0 | 0 | 0 |
-| 0 | 1 | 0 |
-| 1 | 0 | 0 |
+| 0 | 1 | 1 |
+| 1 | 0 | 1 |
 | 1 | 1 | 1 |
 
----
+## Files
 
-## 🛠️ Tools Used
+- `or_gate.v` - RTL design
+- `or_gate_tb.v` - Testbench
+- `waveform.png` - Simulation waveform
 
-- Verilog HDL
-- Icarus Verilog
-- GTKWave
-- VS Code
-- Ubuntu (WSL)
-
----
-
-## 📂 Project Files
-
-```
-01_AND_Gate
-│── and_gate.v
-│── and_gate_tb.v
-│── waveform.png
-└── README.md
-```
-
----
-
-## ▶️ Compilation
+## Compile
 
 ```bash
-iverilog -o and.out and_gate.v and_gate_tb.v
+iverilog -o or.out or_gate.v or_gate_tb.v
 ```
 
----
-
-## ▶️ Simulation
+## Run
 
 ```bash
-vvp and.out
+vvp or.out
 ```
 
----
-
-## 📈 Waveform
+## View Waveform
 
 ```bash
 gtkwave wave.vcd
 ```
 
-
-
----
-
-## 💻 RTL Code
-
-### and_gate.v
-
-```verilog
-module and_gate(a,b,c);
-    input a,b;
-    output c;
-
-    assign c = a & b;
-
-endmodule
-```
-
----
-
-### and_gate_tb.v
-
-```verilog
-`timescale 1ns/1ps
-
-module and_gate_tb;
-
-reg x,y;
-wire z;
-
-and_gate dut(.a(x), .b(y), .c(z));
-
-initial begin
-    $dumpfile("wave.vcd");
-    $dumpvars(0,and_gate_tb);
-
-    x = 0; y = 0;
-    #10 x = 0; y = 1;
-    #10 x = 1; y = 0;
-    #10 x = 1; y = 1;
-    #20 $finish;
-end
-
-initial begin
-    $monitor($time," x=%b y=%b z=%b",x,y,z);
-end
-
-endmodule
-```
-
----
-
-## 📊 Expected Simulation Output
+## Output
 
 ```
 0   x=0 y=0 z=0
-10  x=0 y=1 z=0
-20  x=1 y=0 z=0
+10  x=0 y=1 z=1
+20  x=1 y=0 z=1
 30  x=1 y=1 z=1
 ```
 
----
+## Learning
 
-## 📚 Learning Outcome
-
-- Understanding Verilog module declaration
-- Using continuous assignment (`assign`)
-- Writing a Verilog testbench
-- Running simulations using Icarus Verilog
-- Viewing waveforms using GTKWave
-
----
-
-**Author:** Abhishek A Nair
+- Learned the OR operator (`|`)
+- Wrote a Verilog testbench
+- Simulated the design using Icarus Verilog
+- Viewed the waveform in GTKWave
